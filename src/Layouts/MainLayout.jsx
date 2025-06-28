@@ -1,9 +1,16 @@
 import React from 'react';
+import ThemeToggle from '../Component/ThemeToggle';
+import Navbar from '../Component/Navbar/Navbar';
+import Banner from '../Component/Banner/Banner';
+import Education from '../Component/Education/Education';
 
 const MainLayout = () => {
     return (
         <div>
-            <h1>this is main layout</h1>
+            <Navbar/>
+            <Banner/>
+            <Education/>
+            <ThemeToggle/>
             
         </div>
     );

@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import MainLayout from './Layouts/MAinLayout.jsx'
+import MainLayout from './Layouts/MainLayout'
+import ThemeProvider from './context/Themeprovider'
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <ThemeProvider>
+      <RouterProvider router={router}/>
+    </ThemeProvider>
   </StrictMode>,
 )
