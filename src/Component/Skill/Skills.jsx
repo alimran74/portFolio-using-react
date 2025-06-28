@@ -13,6 +13,7 @@ import {
   SiNpm,
   SiStripe,
 } from "react-icons/si";
+import Squares from "../Banner/Squares";
 
 import SkillCard from "./SkillCard";
 
@@ -35,9 +36,18 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto"
+      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto relative overflow-hidden"
       style={{ backgroundColor: "#F9FAFB", color: "#1F2937" }} // soft gray background & dark text
     >
+      {/* ✅ Square Background Effect */}
+      <Squares
+        direction="diagonal"
+        speed={0.5}
+        squareSize={50}
+        borderColor="rgba(31, 41, 55, 0.08)" // textPrimary as subtle grid lines
+        hoverFillColor="#E0F2FE" // Light blue on hover
+        className="absolute inset-0 -z-10"
+      />
       <div className="text-center mb-8">
         <h2
           className="text-3xl md:text-5xl font-bold mb-4"

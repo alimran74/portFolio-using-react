@@ -1,114 +1,171 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import Button from "../../context/Button";
 
 const navLinks = [
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
+const resumeLink = "https://drive.google.com/your-drive-link"; // <-- Replace with your actual Drive share link
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleLinkClick = (href) => {
+    setActiveLink(href.replace("#", ""));
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#F9FAFB]/60 backdrop-blur-md shadow-md" // background: soft gray with blur on scroll
-          : "bg-[#F9FAFB]" // plain soft gray when on top
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold text-[#2563EB]"> {/* accent blue */}
-              <img
-                className="w-10"
-                src="https://i.ibb.co/qFmfJC6B/image-modified.png"
-                alt="logo"
-              />
+    <>
+      <header
+        className="fixed top-0 left-0 w-full z-50"
+        // header is full width but no background or shadow here
+      >
+        <nav
+          className={`max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 transition-colors duration-500
+            ${
+              scrolled
+                ? "bg-white/40 backdrop-blur-md shadow-md rounded-lg"
+                : "bg-transparent"
+            }`}
+        >
+          {/* Logo image */}
+          <a href="#home" className="flex items-center">
+            <img
+              src="https://i.ibb.co/qFmfJC6B/image-modified.png"
+              alt="Logo"
+              className="h-10 w-auto"
+            />
+          </a>
+
+          {/* Desktop Links */}
+          <ul className="hidden md:flex space-x-8 items-center font-medium text-gray-800">
+            {navLinks.map(({ name, href }) => (
+              <li key={name} className="relative">
+                <a
+                  href={href}
+                  onClick={() => handleLinkClick(href)}
+                  className={`hover:text-[#2563EB] transition-colors duration-300 ${
+                    activeLink === href.replace("#", "")
+                      ? "text-[#2563EB]"
+                      : "text-gray-800"
+                  }`}
+                >
+                  {name}
+                </a>
+                {activeLink === href.replace("#", "") && (
+                  <motion.div
+                    layoutId="underline"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#2563EB] rounded"
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* Resume Download Button on Desktop */}
+          <div className="hidden md:block">
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="px-5 py-2 rounded-full border-2 border-[#2563EB] text-[#2563EB] font-semibold hover:bg-[#2563EB] hover:text-white transition"
+            >
+              View Resume
             </a>
           </div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex space-x-6">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 border border-[#E5E7EB] rounded-md text-sm font-semibold text-[#1F2937] hover:bg-[#2563EB] hover:text-white transition duration-300 shadow-sm"
-              >
-                {link.name}
-              </motion.a>
-            ))}
-          </div>
+          {/* Mobile Hamburger with 3D effect */}
+          <button
+            className="md:hidden p-2 rounded-md text-gray-800 hover:text-[#2563EB] focus:outline-none
+              shadow-md active:shadow-inner active:translate-y-[1px] active:scale-[0.95]
+              transition-transform duration-150"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <HiMenu className="w-7 h-7" />
+          </button>
+        </nav>
+      </header>
 
-          {/* Resume Button */}
-          <div className="hidden md:block">
-            <Button />
-          </div>
-
-          {/* Mobile Menu Icon */}
-          <div className="md:hidden">
-            <motion.button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              whileTap={{ scale: 0.9 }}
-              className="focus:outline-none"
-            >
-              {mobileMenuOpen ? (
-                <HiX className="w-7 h-7 text-[#1F2937] transition-transform duration-300 rotate-90" />
-              ) : (
-                <motion.div
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
-                >
-                  <HiMenu className="w-7 h-7 text-[#1F2937] transition-transform duration-300" />
-                </motion.div>
-              )}
-            </motion.button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="md:hidden px-4 pt-2 pb-4 space-y-3 bg-[#F9FAFB]/90 backdrop-blur-md border-t border-[#E5E7EB]"
-          >
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="block text-center px-4 py-2 border border-[#2563EB] rounded-md text-sm font-medium text-[#1F2937] hover:bg-[#2563EB] hover:text-white transition"
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black z-40"
+            />
+
+            {/* Drawer with transparent glass effect */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 w-3/4 max-w-xs h-full bg-white/30 backdrop-blur-md shadow-lg z-50 flex flex-col p-6"
+            >
+              {/* Close button */}
+              <button
+                className="self-end mb-6 p-2 rounded-md text-gray-700 hover:text-[#2563EB] focus:outline-none"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
               >
-                {link.name}
-              </motion.a>
-            ))}
-            <div className="pt-2 text-center">
-              <Button />
-            </div>
-          </motion.div>
+                <HiX className="w-7 h-7" />
+              </button>
+
+              {/* Links */}
+              <nav className="flex flex-col space-y-6 font-semibold text-gray-800">
+                {navLinks.map(({ name, href }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    onClick={() => handleLinkClick(href)}
+                    className={`text-lg ${
+                      activeLink === href.replace("#", "")
+                        ? "text-[#2563EB]"
+                        : "hover:text-[#2563EB]"
+                    } transition-colors duration-300`}
+                  >
+                    {name}
+                  </a>
+                ))}
+              </nav>
+
+              {/* Resume Button inside Mobile Menu */}
+              <a
+                href="https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="mt-auto px-5 py-2 rounded-full border-2 border-[#2563EB] text-[#2563EB] font-semibold text-center hover:bg-[#2563EB] hover:text-white transition"
+              >
+                Download Resume
+              </a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
