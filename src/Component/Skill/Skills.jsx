@@ -34,9 +34,9 @@ const Skills = () => {
     { name: "Stripe", icon: <SiStripe className="text-indigo-500" /> },
   ];
   return (
-    <section
+    <section data-aos="fade-up"
       id="skills"
-      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto relative overflow-hidden"
+      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto relative overflow-hidden pb-4"
       style={{ backgroundColor: "#F9FAFB", color: "#1F2937" }} // soft gray background & dark text
     >
       {/* ✅ Square Background Effect */}

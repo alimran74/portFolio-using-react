@@ -4,7 +4,7 @@ import Squares from "../Banner/Squares";
 
 const About = () => {
   return (
-    <section
+    <section data-aos="fade-up"
       id="about"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden bg-[#F9FAFB] text-[#1F2937]"
     >
@@ -28,7 +28,7 @@ const About = () => {
           <img
             src="https://i.ibb.co/xqxj4qWq/portfolio-logo-2-removebg-preview-1.png"
             alt="About Al Imran"
-            className="w-full rounded-xl shadow-lg"
+            className="w-full bg-gray-200 rounded-xl shadow-lg"
           />
         </motion.div>
 
@@ -40,7 +40,7 @@ const About = () => {
           className="text-left"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#2563EB]">
-            About Me
+            Who am I ?
           </h2>
 
           <p className="text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
