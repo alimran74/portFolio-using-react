@@ -46,6 +46,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
+      data-aos="fade-up"
       className="relative py-12 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] max-w-7xl mx-auto overflow-hidden"
     >
       {/* 🔲 Canvas Background */}
@@ -60,9 +61,7 @@ const Projects = () => {
 
       {/* 🔤 Heading */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        
         className="text-center mb-12"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-[#2563EB]">

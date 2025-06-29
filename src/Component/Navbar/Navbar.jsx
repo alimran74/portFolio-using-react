@@ -9,7 +9,8 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const resumeLink = "https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing"; 
+const resumeLink =
+  "https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,26 +25,32 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // 🔽 Smooth scroll with offset for fixed header
   const handleLinkClick = (href) => {
     setActiveLink(href.replace("#", ""));
     setMobileMenuOpen(false);
+
+    const element = document.querySelector(href);
+    if (element) {
+      const yOffset = -80; // Adjust based on your navbar height
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 w-full z-50"
-        // header is full width but no background or shadow here
-      >
+      <header className="fixed top-0 left-0 w-full z-50">
         <nav
-          className={`max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 transition-colors duration-500
-            ${
-              scrolled
-                ? "bg-white/40 backdrop-blur-md shadow-md rounded-lg"
-                : "bg-transparent"
-            }`}
+          className={`max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 transition-colors duration-500 ${
+            scrolled
+              ? "bg-white/40 backdrop-blur-md shadow-md rounded-lg"
+              : "bg-transparent"
+          }`}
         >
-          {/* Logo image */}
+          {/* 🔷 Logo */}
           <a href="#home" className="flex items-center">
             <img
               src="https://i.ibb.co/qFmfJC6B/image-modified.png"
@@ -52,12 +59,11 @@ const Navbar = () => {
             />
           </a>
 
-          {/* Desktop Links */}
+          {/* 🔷 Desktop Links */}
           <ul className="hidden md:flex space-x-8 items-center font-medium text-gray-800">
             {navLinks.map(({ name, href }) => (
               <li key={name} className="relative">
-                <a
-                  href={href}
+                <button
                   onClick={() => handleLinkClick(href)}
                   className={`hover:text-[#2563EB] transition-colors duration-300 ${
                     activeLink === href.replace("#", "")
@@ -66,7 +72,7 @@ const Navbar = () => {
                   }`}
                 >
                   {name}
-                </a>
+                </button>
                 {activeLink === href.replace("#", "") && (
                   <motion.div
                     layoutId="underline"
@@ -77,24 +83,22 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Resume Download Button on Desktop */}
+          {/* 🔷 Resume Button */}
           <div className="hidden md:flex justify-end">
-  <a
-    href={resumeLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    download
-    className="custom-button"
-  >
-     Resume
-  </a>
-</div>
+            <a
+              href={resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="custom-button"
+            >
+              Resume
+            </a>
+          </div>
 
-          {/* Mobile Hamburger with 3D effect */}
+          {/* 🔷 Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-800 hover:text-[#2563EB] focus:outline-none
-              shadow-md active:shadow-inner active:translate-y-[1px] active:scale-[0.95]
-              transition-transform duration-150"
+            className="md:hidden p-2 rounded-md text-gray-800 hover:text-[#2563EB] focus:outline-none shadow-md transition-transform duration-150 active:scale-95"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -103,7 +107,7 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* Mobile Menu Drawer */}
+      {/* 🔷 Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -116,7 +120,7 @@ const Navbar = () => {
               className="fixed inset-0 bg-black z-40"
             />
 
-            {/* Drawer with transparent glass effect */}
+            {/* Drawer */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -124,7 +128,6 @@ const Navbar = () => {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed top-0 right-0 w-3/4 max-w-xs h-full bg-white/30 backdrop-blur-md shadow-lg z-50 flex flex-col p-6"
             >
-              {/* Close button */}
               <button
                 className="self-end mb-6 p-2 rounded-md text-gray-700 hover:text-[#2563EB] focus:outline-none"
                 onClick={() => setMobileMenuOpen(false)}
@@ -133,25 +136,24 @@ const Navbar = () => {
                 <HiX className="w-7 h-7" />
               </button>
 
-              {/* Links */}
+              {/* Mobile Links */}
               <nav className="flex flex-col space-y-6 font-semibold text-gray-800">
                 {navLinks.map(({ name, href }) => (
-                  <a
+                  <button
                     key={name}
-                    href={href}
                     onClick={() => handleLinkClick(href)}
-                    className={`text-lg ${
+                    className={`text-lg text-left ${
                       activeLink === href.replace("#", "")
                         ? "text-[#2563EB]"
                         : "hover:text-[#2563EB]"
                     } transition-colors duration-300`}
                   >
                     {name}
-                  </a>
+                  </button>
                 ))}
               </nav>
 
-              {/* Resume Button inside Mobile Menu */}
+              {/* Resume in Mobile */}
               <a
                 href={resumeLink}
                 target="_blank"

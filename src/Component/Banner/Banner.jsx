@@ -46,10 +46,10 @@ const Banner = () => {
             <a href="https://github.com/alimran74" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-black transition">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/in/alimran74" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#2563EB] transition">
+            <a href="https://www.linkedin.com/in/al-imran-98a7ab247/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#2563EB] transition">
               <FaLinkedin />
             </a>
-            <a href="https://facebook.com/alimran74" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#2563EB] transition">
+            <a href="https://www.facebook.com/wizard34.net" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#2563EB] transition">
               <FaFacebook />
             </a>
           </div>

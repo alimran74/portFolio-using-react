@@ -49,3 +49,6 @@
 .custom-button:active {
   transform: scale(0.95);
 }
+html {
+  scroll-behavior: smooth;
+}

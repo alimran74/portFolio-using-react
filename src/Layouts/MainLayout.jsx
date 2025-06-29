@@ -7,6 +7,9 @@ import About from '../Component/About/About';
 import { useEffect } from "react";
 import Education from "../Component/Education/Education";
 import Projects from "../Component/ProjectsSection/Projects";
+import Contact from "../Component/Contact/Contact";
+import { ToastContainer } from "react-toastify";
+import Footer from "../Component/Footer/Footer";
 
 
 
@@ -19,6 +22,18 @@ const MainLayout = () => {
   }, []);
     return (
         <div>
+            <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     
             
             <Navbar/>
@@ -27,6 +42,8 @@ const MainLayout = () => {
             <Skills/>
             <Education/>
             <Projects/>
+            <Contact/>
+            <Footer/>
 
             
         </div>
