@@ -30,7 +30,8 @@ const ServiceSpotDetails = () => {
   ];
 
   return (
-    <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto overflow-hidden">
+    <section 
+    className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto overflow-hidden">
         <ClickSpark  sparkColor='black'
   sparkSize={10}
   sparkRadius={15}
@@ -87,7 +88,7 @@ const ServiceSpotDetails = () => {
 
       {/* 🔄 CardSwap Image Carousel */}
       <div className="relative z-10" style={{ height: "600px", marginBottom: "3rem" }}>
-        <CardSwap cardDistance={60} verticalDistance={70} delay={4000} pauseOnHover>
+        <CardSwap  cardDistance={60} verticalDistance={70} delay={4000} pauseOnHover>
           {imageUrls.map((src, index) => (
             <Card key={index} onClick={() => setSelectedImage(src)}>
               <img
