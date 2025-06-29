@@ -7,3 +7,45 @@
   font-family:  'Saira', sans-serif;
 }
 
+/* custom-button class – animated border fill effect */
+.custom-button {
+  font-size: 15px;
+  padding: 0.45em 1.2em;
+  border: 2px solid #2563EB;
+  color: #2563EB;
+  border-radius: 4px;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+  transition: 0.3s ease all;
+  z-index: 1;
+  display: inline-block; /* ✅ necessary */
+  white-space: nowrap;   /* ✅ prevent text wrap */
+}
+
+.custom-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background-color: #2563EB;
+  z-index: -1;
+  transition: 0.4s all ease;
+  opacity: 0;
+}
+
+.custom-button:hover {
+  color: white;
+}
+
+.custom-button:hover:before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+}

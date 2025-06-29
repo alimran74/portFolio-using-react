@@ -9,7 +9,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const resumeLink = "https://drive.google.com/your-drive-link"; // <-- Replace with your actual Drive share link
+const resumeLink = "https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing"; 
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -78,17 +78,17 @@ const Navbar = () => {
           </ul>
 
           {/* Resume Download Button on Desktop */}
-          <div className="hidden md:block">
-            <a
-              href={resumeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              className="px-5 py-2 rounded-full border-2 border-[#2563EB] text-[#2563EB] font-semibold hover:bg-[#2563EB] hover:text-white transition"
-            >
-              View Resume
-            </a>
-          </div>
+          <div className="hidden md:flex justify-end">
+  <a
+    href={resumeLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    download
+    className="custom-button"
+  >
+     Resume
+  </a>
+</div>
 
           {/* Mobile Hamburger with 3D effect */}
           <button
@@ -153,11 +153,11 @@ const Navbar = () => {
 
               {/* Resume Button inside Mobile Menu */}
               <a
-                href="https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing"
+                href={resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 download
-                className="mt-auto px-5 py-2 rounded-full border-2 border-[#2563EB] text-[#2563EB] font-semibold text-center hover:bg-[#2563EB] hover:text-white transition"
+                className="custom-button mt-auto text-center"
               >
                 Download Resume
               </a>

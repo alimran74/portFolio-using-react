@@ -33,7 +33,7 @@ const Education = () => {
     <section data-aos="fade-up"
     data-aos-duration="2000"
       id="education"
-      className="relative max-w-7xl mx-auto py-24 bg-[#F9FAFB] text-[#1F2937] overflow-hidden"
+      className="relative max-w-7xl mx-auto py-28  bg-[#F9FAFB] text-[#1F2937] overflow-hidden"
     >
       {/* ✅ Background Squares */}
       <Squares

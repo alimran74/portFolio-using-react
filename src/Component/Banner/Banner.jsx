@@ -63,7 +63,7 @@ const Banner = () => {
               className="group relative inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:bg-white border border-[#25D366]"
             >
               <FaWhatsapp className="text-xl mr-2 group-hover:text-[#25D366] transition duration-300" />
-              <span className="transition duration-300 group-hover:text-[#25D366]"></span>
+              <span className="transition duration-300 group-hover:text-[#25D366]">Contact</span>
             </a>
           </div>
         </div>

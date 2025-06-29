@@ -6,6 +6,7 @@ import Skills from '../Component/Skill/Skills';
 import About from '../Component/About/About';
 import { useEffect } from "react";
 import Education from "../Component/Education/Education";
+import Projects from "../Component/ProjectsSection/Projects";
 
 
 
@@ -25,6 +26,7 @@ const MainLayout = () => {
             <About/>
             <Skills/>
             <Education/>
+            <Projects/>
 
             
         </div>

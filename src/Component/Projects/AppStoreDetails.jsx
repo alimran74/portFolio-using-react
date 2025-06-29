@@ -1,13 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 
-const ProjectLayout = () => {
+const AppStoreDetails = () => {
     return (
         <div>
             <Outlet/>
-         
         </div>
     );
 };
 
-export default ProjectLayout;
+export default AppStoreDetails;
