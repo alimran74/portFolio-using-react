@@ -1,23 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Squares from "../Banner/Squares"; 
+import { useNavigate } from "react-router";
+import Squares from "../Banner/Squares";
 
 const About = () => {
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const projects = [
+    {
+      title: "Service Spot",
+      img: "https://i.ibb.co/nMxNsR0Q/Screenshot-2025-06-29-050741.png",
+      route: "/project/1",
+    },
+    {
+      title: "HobbyHub",
+      img: "https://i.ibb.co/N2s6MwtS/Screenshot-2025-06-29-050113.png",
+      route: "/project//2",
+    },
+    {
+      title: "App Store",
+      img: "https://i.ibb.co/BKBjTqP5/Screenshot-2025-06-29-051657.png",
+      route: "/project/3",
+    },
+  ];
+
+  const handleImageClick = (route) => {
+    setShowModal(false);
+    navigate(route);
+  };
+
   return (
-    <section data-aos="fade-up"
+    <section
+      data-aos="fade-up"
       id="about"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden bg-[#F9FAFB] text-[#1F2937]"
     >
-      {/* ✅ Square Background Effect */}
       <Squares
         direction="diagonal"
         speed={0.5}
         squareSize={50}
-        borderColor="rgba(31, 41, 55, 0.08)" // textPrimary as subtle grid lines
-        hoverFillColor="#E0F2FE" // Light blue on hover
+        borderColor="rgba(31, 41, 55, 0.08)"
+        hoverFillColor="#E0F2FE"
         className="absolute inset-0 -z-10"
       />
-      
+
+      {/* 🔍 Modal for Project Preview */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+          <div className="bg-white p-6 rounded-xl max-w-4xl w-full shadow-xl">
+            <h3 className="text-2xl font-semibold text-center mb-6">My Top Projects</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {projects.map((proj, i) => (
+                <div
+                  key={i}
+                  onClick={() => handleImageClick(proj.route)}
+                  className="cursor-pointer group"
+                >
+                  <img
+                    src={proj.img}
+                    alt={proj.title}
+                    className="rounded-xl w-full h-[180px] object-cover group-hover:scale-105 transition-transform duration-300 shadow-md"
+                  />
+                  <p className="mt-2 text-center text-blue-600 font-medium">{proj.title}</p>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => setShowModal(false)}
+              className="block mx-auto mt-6 px-5 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-12 items-center ">
         {/* Left Side: Illustration */}
         <motion.div
@@ -32,7 +90,7 @@ const About = () => {
           />
         </motion.div>
 
-        {/* Right Side: Text */}
+        {/* Right Side: Full About Text */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -59,14 +117,14 @@ const About = () => {
             My long-term goal is to become a professional full-stack developer and contribute to impactful products. I believe in continuous growth, clear UI, clean code, and meaningful user experience.
           </p>
 
-          <motion.a
-            href="#projects"
+          <motion.button
+            onClick={() => setShowModal(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block px-6 py-3 bg-[#2563EB] text-white font-semibold rounded-lg shadow hover:bg-[#1D4ED8] transition"
           >
             View My Projects 🚀
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </section>
