@@ -13,6 +13,7 @@ import {
 import { MdContactMail } from "react-icons/md";
 import Squares from "../Banner/Squares";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const form = useRef();
@@ -40,6 +41,24 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Al Imran | Full Stack Web Developer</title>
+        <meta
+          name="description"
+          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
+        />
+        <meta
+          name="keywords"
+          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
+        />
+        <meta name="author" content="Al Imran" />
+        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
+        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
+        <meta property="og:image" content="https://yourdomain.com/preview.png" />
+        <meta property="og:url" content="https://yourdomain.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
     <section
     data-aos="fade-up"
       id="contact"
@@ -151,6 +170,7 @@ const Contact = () => {
         </form>
       </div>
     </section>
+    </>
   );
 };
 

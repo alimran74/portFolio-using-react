@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import CardSwap, { Card } from "./CardSwap";
 import Squares from "../Banner/Squares";
 import ClickSpark from "./ClickSpark";
+import { Helmet } from "react-helmet";
 
 const HobbyHubDetails = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -30,7 +31,25 @@ const HobbyHubDetails = () => {
   ];
 
   return (
-    <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto overflow-hidden">
+<>  
+ <Helmet>
+        <title>Al Imran | Full Stack Web Developer</title>
+        <meta
+          name="description"
+          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
+        />
+        <meta
+          name="keywords"
+          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
+        />
+        <meta name="author" content="Al Imran" />
+        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
+        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
+        <meta property="og:image" content="https://yourdomain.com/preview.png" />
+        <meta property="og:url" content="https://yourdomain.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+  <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto overflow-hidden">
       <ClickSpark sparkColor="black" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
           <Squares
@@ -172,6 +191,7 @@ const HobbyHubDetails = () => {
         </div>
       </ClickSpark>
     </section>
+    </>
   );
 };
 

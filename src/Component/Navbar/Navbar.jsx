@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
+import { Helmet } from "react-helmet";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -42,6 +43,23 @@ const Navbar = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Al Imran | Full Stack Web Developer</title>
+        <meta
+          name="description"
+          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
+        />
+        <meta
+          name="keywords"
+          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
+        />
+        <meta name="author" content="Al Imran" />
+        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
+        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
+        <meta property="og:image" content="https://yourdomain.com/preview.png" />
+        <meta property="og:url" content="https://yourdomain.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <header className="fixed top-0 left-0 w-full z-50">
         <nav
           className={`max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 transition-colors duration-500 ${
