@@ -6,7 +6,7 @@ import Squares from "./Squares";
 
 const Banner = () => {
   return (
-    <section data-aos="fade-up" data-aos-duration="2000"
+    <section id="home" data-aos="fade-up" data-aos-duration="2000"
     data-aos-easing="ease-in-sine"
      className="relative overflow-hidden">
       {/* Background Squares */}
