@@ -15,9 +15,9 @@ const About = () => {
       route: "/project/1",
     },
     {
-      title: "HobbyHub",
+      title: "Hobby Hub",
       img: "https://i.ibb.co/N2s6MwtS/Screenshot-2025-06-29-050113.png",
-      route: "/project//2",
+      route: "/project/2",
     },
     {
       title: "App Store",
@@ -46,9 +46,9 @@ const About = () => {
         <meta name="author" content="Al Imran" />
         <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
         <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://yourdomain.com/preview.png" />
-        <meta property="og:url" content="https://yourdomain.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
+        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
+        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
     <section
       data-aos="fade-up"

@@ -11,7 +11,7 @@ const navLinks = [
 ];
 
 const resumeLink =
-  "https://drive.google.com/file/d/1VQmAzpoJ0bybykEPyDtToQRr14G4d3d7/view?usp=sharing";
+  "https://drive.google.com/file/d/1pnc3V0KNAhl8_A8Tff8V1tHuphu_ig4I/view?usp=sharing";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -56,9 +56,9 @@ const Navbar = () => {
         <meta name="author" content="Al Imran" />
         <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
         <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://yourdomain.com/preview.png" />
-        <meta property="og:url" content="https://yourdomain.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
+        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
+        <meta name="twitter:card" content="../../assets/bannerP.png" />
       </Helmet>
       <header className="fixed top-0 left-0 w-full z-50">
         <nav

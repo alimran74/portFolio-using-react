@@ -59,9 +59,9 @@ const Projects = () => {
         <meta name="author" content="Al Imran" />
         <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
         <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://yourdomain.com/preview.png" />
-        <meta property="og:url" content="https://yourdomain.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
+        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
+        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
     <section
       id="projects"

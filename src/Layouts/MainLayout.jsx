@@ -44,17 +44,17 @@ const MainLayout = () => {
         />
         <meta
           property="og:image"
-          content="https://yourdomain.com/preview.png"
+          content="https://al-imran-portfolio.netlify.app/"
         />
-        <meta property="og:url" content="https://yourdomain.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
+        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Al Imran",
-              "url": "https://yourdomain.com",
+              "url": "https://al-imran-portfolio.netlify.app/",
               "sameAs": [
                 "https://github.com/alimran74",
                 "https://linkedin.com/in/alimran74"
