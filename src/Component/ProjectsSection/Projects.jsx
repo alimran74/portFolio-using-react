@@ -66,7 +66,7 @@ const Projects = () => {
     <section
       id="projects"
       data-aos="fade-up"
-      className="relative py-12 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] max-w-7xl mx-auto overflow-hidden"
+      className="relative py-12 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] px-7 mx-auto overflow-hidden"
     >
       {/* 🔲 Canvas Background */}
       <Squares

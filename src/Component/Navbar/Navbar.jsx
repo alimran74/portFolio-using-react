@@ -62,7 +62,7 @@ const Navbar = () => {
       </Helmet>
       <header className="fixed top-0 left-0 w-full z-50">
         <nav
-          className={`max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-4 transition-colors duration-500 ${
+          className={`px-6 mx-auto flex items-center justify-between  sm:px-10 py-4 transition-colors duration-500 ${
             scrolled
               ? "bg-white/40 backdrop-blur-md shadow-md rounded-lg"
               : "bg-transparent"

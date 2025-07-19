@@ -53,20 +53,13 @@ const Skills = () => {
         <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
         <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
-    <section data-aos="fade-up"
+    <section 
       id="skills"
-      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto relative overflow-hidden pb-4"
-      style={{ backgroundColor: "#F9FAFB", color: "#1F2937" }} // soft gray background & dark text
+      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16  mx-auto relative overflow-hidden pb-4 bg-gradient-to-br from-blue-200 via-white to-cyan-100"
+       // soft gray background & dark text
     >
       {/* ✅ Square Background Effect */}
-      <Squares
-        direction="diagonal"
-        speed={0.5}
-        squareSize={50}
-        borderColor="rgba(31, 41, 55, 0.08)" // textPrimary as subtle grid lines
-        hoverFillColor="#E0F2FE" // Light blue on hover
-        className="absolute inset-0 -z-10"
-      />
+    
       <div className="text-center mb-8">
         <h2
           className="text-3xl md:text-5xl font-bold mb-4"

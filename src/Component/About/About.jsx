@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
-import Squares from "../Banner/Squares";
 import { Helmet } from "react-helmet";
+import { FaArrowRight } from "react-icons/fa";
+import Tilt from "react-parallax-tilt";
+
 
 const About = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const containerRef = useRef(null);
 
   const projects = [
     {
@@ -31,122 +34,141 @@ const About = () => {
     navigate(route);
   };
 
+
+  useEffect(() => {
+    if (containerRef.current) {
+      import("gsap").then(({ gsap }) => {
+        const elements = containerRef.current.querySelectorAll(".gsap-intro");
+        gsap.fromTo(
+          elements,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, stagger: 0.18, duration: 1, ease: "power3.out", delay: 0.4 }
+        );
+      });
+    }
+  }, []);
+
   return (
     <>
-    <Helmet>
-        <title>Al Imran | Full Stack Web Developer</title>
-        <meta
-          name="description"
-          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
-        />
-        <meta
-          name="keywords"
-          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
-        />
-        <meta name="author" content="Al Imran" />
-        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
-        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
-        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
-        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
+      <Helmet>
+        <title>Al Imran | About</title>
+        <meta name="description" content="Learn more about Al Imran, full stack developer: skills, focus, and journey." />
       </Helmet>
-    <section
-      data-aos="fade-up"
-      id="about"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden bg-[#F9FAFB] text-[#1F2937]"
-    >
-      <Squares
-        direction="diagonal"
-        speed={0.5}
-        squareSize={50}
-        borderColor="rgba(31, 41, 55, 0.08)"
-        hoverFillColor="#E0F2FE"
-        className="absolute inset-0 -z-10"
-      />
 
-      {/* 🔍 Modal for Project Preview */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
-          <div className="bg-white p-6 rounded-xl max-w-4xl w-full shadow-xl">
-            <h3 className="text-2xl font-semibold text-center mb-6">My Top Projects</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {projects.map((proj, i) => (
-                <div
-                  key={i}
-                  onClick={() => handleImageClick(proj.route)}
-                  className="cursor-pointer group"
-                >
-                  <img
-                    src={proj.img}
-                    alt={proj.title}
-                    className="rounded-xl w-full h-[180px] object-cover group-hover:scale-105 transition-transform duration-300 shadow-md"
-                  />
-                  <p className="mt-2 text-center text-blue-600 font-medium">{proj.title}</p>
-                </div>
-              ))}
-            </div>
-            <button
-              onClick={() => setShowModal(false)}
-              className="block mx-auto mt-6 px-5 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+      <section
+        id="about"
+        ref={containerRef}
+        className="relative min-h-screen overflow-hidden bg-gradient-to-tr from-blue-200 via-white to-cyan-100 py-20 px-6 sm:px-10"
+      >
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+         {/* Right Section - Tilt Image */}
+          <motion.div
+            className="w-4/5 max-w-xs sm:max-w-md md:w-1/2 mx-auto md:mx-0"
+            initial={{ opacity: 0, scale: 0.9, y: 25 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.7, type: "spring", bounce: 0.3 }}
+          >
+            <Tilt
+              glareEnable={true}
+              glareColor="#93C5FD"
+              glareMaxOpacity={0.36}
+              tiltMaxAngleX={12}
+              tiltMaxAngleY={12}
+              transitionSpeed={2000}
+              className="drop-shadow-xl rounded-3xl border-4 border-[#2563EB]"
             >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+              <motion.img
+                src="https://i.ibb.co/xqxj4qWq/portfolio-logo-2-removebg-preview-1.png"
+                alt="Al Imran"
+                className="rounded-3xl w-full h-auto block"
+                whileHover={{ scale: 1.06, rotate: 2 }}
+                transition={{ type: "spring", stiffness: 160, damping: 10 }}
+              />
+            </Tilt>
+          </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center ">
-        {/* Left Side: Illustration */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <img
-            src="https://i.ibb.co/xqxj4qWq/portfolio-logo-2-removebg-preview-1.png"
-            alt="About Al Imran"
-            className="w-full bg-gray-200 rounded-xl shadow-lg"
-          />
-        </motion.div>
-
-        {/* Right Side: Full About Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-left"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#2563EB]">
-            Who am I ?
-          </h2>
-
-          <p className="text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
-            Hi! I’m <span className="font-semibold text-[#2563EB]">Al Imran</span>, a passionate web developer from Bangladesh with a diploma in Computer Science & Engineering. My coding journey began with curiosity — and soon became a full-blown mission to build meaningful software solutions.
-          </p>
-
-          <p className="text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
+          {/* Right Content */}
+          <motion.div
+            className="flex-1 text-gray-900"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+          >
+            <h2 className="gsap-intro text-4xl md:text-5xl font-bold mb-4 text-[#2563EB]">Who am I ?</h2>
+            <p className="gsap-intro text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
+              Hi! I’m <span className="font-semibold text-[#2563EB]">Al Imran</span>, a passionate web developer from Bangladesh with a diploma in Computer Science & Engineering.
+            </p>
+           <p className="text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
             I’ve been learning and practicing full-stack web development through the <span className="font-medium text-[#2563EB]">MERN stack</span>. I enjoy transforming real-world ideas into fast, responsive, and interactive web applications that users love.
           </p>
 
           <p className="text-lg sm:text-xl text-gray-700 mb-4 leading-relaxed">
-            Currently, I’m sharpening my skills by building projects like <span className="text-[#2563EB] font-medium">Career Code</span>, <span className="text-[#2563EB] font-medium">HobbyHub</span>, and a parcel tracking system — all packed with features like JWT auth, Firebase integration, dashboards, filtering, and more.
+            Currently, I’m sharpening my skills by building projects like <span className="text-[#2563EB] font-medium">Aura match</span>, <span className="text-[#2563EB] font-medium">Service Spot</span>,<span className="text-[#2563EB] font-medium">HobbyHub</span>, and a parcel tracking system — all packed with features like JWT auth, Firebase integration, dashboards, filtering, and more.
           </p>
 
           <p className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">
             My long-term goal is to become a professional full-stack developer and contribute to impactful products. I believe in continuous growth, clear UI, clean code, and meaningful user experience.
           </p>
+            
+            <motion.button
+              type="button"
+              aria-label="Open projects modal"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#2563EB",
+                color: "#fff",
+                boxShadow: "0 8px 20px rgba(37,99,235,0.4)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg shadow-md transition-all duration-300 hover:bg-blue-600 hover:text-white"
+            >
+              See My Works <FaArrowRight className="ml-2 text-lg" />
+            </motion.button>
+          </motion.div>
+        </div>
 
-          <motion.button
-            onClick={() => setShowModal(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 py-3 bg-[#2563EB] text-white font-semibold rounded-lg shadow hover:bg-[#1D4ED8] transition"
+        {/* 🔍 Modal for Project Preview */}
+        {showModal && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center"
           >
-            View My Projects 🚀
-          </motion.button>
-        </motion.div>
-      </div>
-    </section>
+            <div className="bg-gradient-to-tr from-blue-300 via-white to-cyan-400 p-6 rounded-xl max-w-4xl w-full shadow-xl">
+              <h3 id="modal-title" className="text-2xl font-semibold text-center mb-6">
+                My Top Projects
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {projects.map((proj, i) => (
+                  <div
+                    key={i}
+                    onClick={() => handleImageClick(proj.route)}
+                    className="cursor-pointer group"
+                    tabIndex={0}
+                    onKeyDown={e => { if (e.key === "Enter") handleImageClick(proj.route) }}
+                  >
+                    <img
+                      src={proj.img}
+                      alt={proj.title}
+                      className="rounded-xl w-full h-[180px] object-cover group-hover:scale-105 transition-transform duration-300 shadow-md"
+                    />
+                    <p className="mt-2 text-center text-blue-600 font-medium">{proj.title}</p>
+                  </div>
+                ))}
+              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="block mx-auto mt-6 px-5 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
     </>
   );
 };

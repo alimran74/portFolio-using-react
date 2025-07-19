@@ -62,7 +62,7 @@ const Contact = () => {
     <section
     data-aos="fade-up"
       id="contact"
-      className="py-16 md:py-18 px-4 sm:px-8 md:px-16 bg-[#F9FAFB] text-[#1F2937] max-w-7xl mx-auto relative overflow-hidden"
+      className="py-16 md:py-18 px-4 sm:px-8 md:px-16 bg-[#F9FAFB] text-[#1F2937] px-7 mx-auto relative overflow-hidden"
     >
       <Squares
         direction="diagonal"

@@ -13,13 +13,12 @@ import Education from "../Component/Education/Education";
 import Projects from "../Component/ProjectsSection/Projects";
 import Contact from "../Component/Contact/Contact";
 import Footer from "../Component/Footer/Footer";
-import VerticalStepper from "../Component/VerticalStepper/VerticalStepper";
+
 
 const MainLayout = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,
       offset: 100,
     });
   }, []);
@@ -27,10 +26,10 @@ const MainLayout = () => {
   return (
     <>
       <Helmet>
-        <title>Al Imran | Full Stack Web Developer</title>
+        <title>Al Imran | Mern Stack Developer</title>
         <meta
           name="description"
-          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
+          content="Welcome to the portfolio of Al Imran, a passionate Mern Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
         />
         <meta
           name="keywords"
@@ -81,8 +80,9 @@ const MainLayout = () => {
         />
 
         {/* Vertical Stepper */}
-        <VerticalStepper />
+       
 
+            <div className="">
         {/* Site Layout */}
         <Navbar />
         <Banner />
@@ -92,6 +92,7 @@ const MainLayout = () => {
         <Projects />
         <Contact />
         <Footer />
+        </div>
       </div>
     </>
   );

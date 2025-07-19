@@ -49,7 +49,7 @@ const AppStoreDetails = () => {
         <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
         <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
-    <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12  sm:px-8 md:px-16  mx-auto overflow-hidden">
       <ClickSpark sparkColor="black" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
           <Squares
