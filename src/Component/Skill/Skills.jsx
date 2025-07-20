@@ -1,3 +1,7 @@
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import {
   SiHtml5,
   SiCss3,
@@ -13,10 +17,10 @@ import {
   SiNpm,
   SiStripe,
 } from "react-icons/si";
-import Squares from "../Banner/Squares";
+
 
 import SkillCard from "./SkillCard";
-import { Helmet } from "react-helmet";
+
 
 const Skills = () => {
   const skills = [
@@ -34,55 +38,55 @@ const Skills = () => {
     { name: "NPM", icon: <SiNpm className="text-red-600" /> },
     { name: "Stripe", icon: <SiStripe className="text-indigo-500" /> },
   ];
+
+  const skillGridRef = useRef(null);
+
+  useEffect(() => {
+    if (skillGridRef.current) {
+      const cards = skillGridRef.current.querySelectorAll(".gsap-skill-card");
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: skillGridRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
+  }, []);
+
   return (
-    <>
-     <Helmet>
-        <title>Al Imran | Full Stack Web Developer</title>
-        <meta
-          name="description"
-          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
-        />
-        <meta
-          name="keywords"
-          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
-        />
-        <meta name="author" content="Al Imran" />
-        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
-        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
-        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
-        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
-      </Helmet>
-    <section 
+    <section
       id="skills"
-      className="pt-24  px-4 sm:px-8 md:px-16  mx-auto relative overflow-hidden pb-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100"
-       // soft gray background & dark text
-    >
-      {/* ✅ Square Background Effect */}
-    
+      className="pt-24 px-4 sm:px-8 md:px-16 mx-auto relative overflow-hidden pb-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100"
+    ><div className="max-w-7xl mx-auto">
       <div className="text-center mb-8">
-        <h2
-          className="text-3xl md:text-5xl font-bold mb-4"
-          style={{ color: "#2563EB" }} // accent blue
-        >
-          My Skills
-        </h2>
-        <p
-          className="max-w-xl mx-auto"
-          style={{ color: "#4B5563" }} // secondary text color (gray-600)
-        >
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-blue-700">My Skills</h2>
+        <p className="max-w-xl mx-auto text-gray-600">
           Technologies I work with to build modern and scalable web apps.
         </p>
       </div>
 
-      {/* Card Grid */}
-      <div className="grid grid-cols-3 lg:grid-cols-5 gap-8 justify-items-center">
+      {/* ✅ Apply ref to this wrapper */}
+      <div
+        ref={skillGridRef}
+        className="grid grid-cols-3 lg:grid-cols-5 gap-8 justify-items-center"
+      >
         {skills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
+          <div key={index} className="gsap-skill-card">
+            <SkillCard skill={skill} />
+          </div>
         ))}
       </div>
+      </div>
     </section>
-    </>
   );
 };
 

@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router'; 
+import AuraMatchDetails from './Component/Projects/AuraMatchDetails';
+import Loading from './Component/loading/Loading';
+import ProjectLoading from './Component/loading/ProjectLoading';
 
 
 const MainLayout = lazy(() => import('./Layouts/MainLayout'));
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
     index: true,
     path: '/',
     element: (
-      <Suspense fallback={<div>Loading Main Layout...</div>}>
+      <Suspense fallback={<div><Loading/></div>}>
         <MainLayout />
       </Suspense>
     ),
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
   {
     path: '/project',
     element: (
-      <Suspense fallback={<div>Loading Project Layout...</div>}>
+      <Suspense fallback={<div><ProjectLoading/></div>}>
         <ProjectLayout />
       </Suspense>
     ),
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: '1', // relative path; no need for /project/1 here
         element: (
-          <Suspense fallback={<div>Loading ServiceSpot Details...</div>}>
+          <Suspense fallback={<div><ProjectLoading/></div>}>
             <ServiceSpotDetails />
           </Suspense>
         ),
@@ -41,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: '2',
         element: (
-          <Suspense fallback={<div>Loading HobbyHub Details...</div>}>
+          <Suspense fallback={<div><ProjectLoading/></div>}>
             <HobbyHubDetails />
           </Suspense>
         ),
@@ -49,11 +52,20 @@ const router = createBrowserRouter([
       {
         path: '3',
         element: (
-          <Suspense fallback={<div>Loading AppStore Details...</div>}>
+          <Suspense fallback={<div><ProjectLoading/></div>}>
             <AppStoreDetails />
           </Suspense>
         ),
       },
+      {
+        path: '4',
+        element: (
+          <Suspense fallback={<div><ProjectLoading/></div>}>
+            <AuraMatchDetails/>
+          </Suspense>
+        ),
+      },
+      
     ],
   },
 ]);

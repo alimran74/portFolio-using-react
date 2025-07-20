@@ -16,7 +16,7 @@ const SkillCard = ({ skill }) => {
 
   return (
     <div
-      className="relative flex flex-col items-center group"
+      className="relative  flex flex-col items-center group"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}

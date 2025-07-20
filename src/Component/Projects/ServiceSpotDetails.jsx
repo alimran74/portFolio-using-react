@@ -50,7 +50,7 @@ const ServiceSpotDetails = () => {
         <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
     <section 
-    className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
+    className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12  sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
         <ClickSpark  sparkColor='black'
   sparkSize={10}
   sparkRadius={15}

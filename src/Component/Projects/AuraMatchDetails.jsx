@@ -1,0 +1,187 @@
+import { Link } from "react-router";
+import {
+  FaArrowLeft,
+  FaBlog,
+  FaTools,
+  FaFileAlt,
+  FaLink,
+  FaExclamationTriangle,
+  FaRocket,
+  FaHome,
+} from "react-icons/fa";
+import { useEffect, useState } from "react";
+import CardSwap, { Card } from "./CardSwap";
+import Squares from "../Banner/Squares";
+import ClickSpark from "./ClickSpark";
+import { Helmet } from "react-helmet";
+
+const AuraMatchDetails = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const imageUrls = [
+    "https://i.ibb.co/TmcyDM3/aura1.png",
+    "https://i.ibb.co/fqdNqsk/aura2.png",
+    "https://i.ibb.co/t8DBDWB/aura3.png",
+    "https://i.ibb.co/qmN6KxD/aura4.png",
+  ];
+
+  return (
+    <>
+      <Helmet>
+        <title>Aura Match | Al Imran Portfolio</title>
+        <meta
+          name="description"
+          content="Aura Match is a dating and personality match web platform powered by React, Tailwind, and Firebase Auth."
+        />
+        <meta name="author" content="Al Imran" />
+        <meta property="og:title" content="Aura Match | Project" />
+        <meta
+          property="og:description"
+          content="AI-enhanced dating and matching experience using modern stack"
+        />
+        <meta property="og:image" content="https://aura-match.netlify.app/banner.png" />
+        <meta property="og:url" content="https://aura-match.netlify.app/" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
+        <ClickSpark sparkColor="black" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+            <Squares
+              direction="diagonal"
+              speed={0.5}
+              squareSize={50}
+              borderColor="rgba(31, 41, 55, 0.08)"
+              hoverFillColor="#E0F2FE"
+              className="absolute inset-0 -z-10"
+            />
+          </div>
+
+          {selectedImage && (
+            <div className="fixed inset-0 z-[999] bg-white/20 backdrop-blur-md bg-opacity-95 flex items-center justify-center flex-col p-4">
+              <img
+                src={selectedImage}
+                alt="Zoomed"
+                className="max-h-[80vh] max-w-[90vw] object-contain rounded-xl border border-white shadow-2xl"
+              />
+              <button onClick={() => setSelectedImage(null)} className="custom-button mt-10">
+                🔙 Back to Project
+              </button>
+            </div>
+          )}
+
+          <Link to="/" className="relative z-10 inline-flex items-center gap-2 text-blue-400 font-semibold mb-6 hover:underline">
+            <FaArrowLeft /> Go Back
+          </Link>
+
+          <div className="text-center relative z-10 mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-400 inline-flex items-center gap-3 justify-center mb-4">
+              <FaBlog /> Aura Match — Personality & Dating Platform
+            </h2>
+            <p className="text-[#1F2937] md:text-lg max-w-2xl mx-auto">
+              A modern matching and dating platform that uses questionnaires, Firebase auth, and secure profiles to connect users.
+            </p>
+          </div>
+
+          <div className="relative z-10" style={{ height: "600px", marginBottom: "3rem" }}>
+            <CardSwap cardDistance={60} verticalDistance={70} delay={4000} pauseOnHover>
+              {imageUrls.map((src, index) => (
+                <Card key={index} onClick={() => setSelectedImage(src)}>
+                  <img
+                    src={src}
+                    alt={`Aura Match ${index + 1}`}
+                    className="rounded-xl border border-white w-full h-full object-cover cursor-zoom-in"
+                  />
+                </Card>
+              ))}
+            </CardSwap>
+          </div>
+
+          <div className="relative z-10 mb-10">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+              <FaTools className="text-blue-400" /> Main Technology Stack
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>React 19, TailwindCSS 4.1, React Hook Form</li>
+              <li>Firebase Auth, Firestore Database</li>
+              <li>Framer Motion, Toastify, Heroicons</li>
+              <li>JWT Authorization, Protected Routes</li>
+            </ul>
+          </div>
+
+          <div className="relative z-10 mb-10">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+              <FaFileAlt className="text-blue-400" /> Description
+            </h3>
+            <p className="leading-relaxed">
+              Aura Match allows users to register, fill out a matching quiz, and get suggested partners. It includes secure authentication, profile controls, a personality dashboard, and animations for modern UX. All user data is securely stored and retrievable.
+            </p>
+          </div>
+
+          <div className="relative z-10 mb-10">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+              <FaLink className="text-blue-400" /> Project Links
+            </h3>
+            <ul className="text-blue-400 space-y-2 text-base md:text-lg">
+              <li>
+                🌐 Live:{" "}
+                <a href="https://aura-match.netlify.app/" target="_blank" rel="noreferrer" className="hover:underline">
+                  aura-match.netlify.app
+                </a>
+              </li>
+              <li>
+                💻 Client Repo:{" "}
+                <a href="https://github.com/alimran74/Aura-Match-client" target="_blank" rel="noreferrer" className="hover:underline">
+                  github.com/alimran74/Aura-Match-client
+                </a>
+              </li>
+              <li>
+                🔧 Server Repo:{" "}
+                <a href="https://github.com/alimran74/Aura-Match-server" target="_blank" rel="noreferrer" className="hover:underline">
+                  github.com/alimran74/Aura-Match-server
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="relative z-10 mb-10">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+              <FaExclamationTriangle className="text-blue-400" /> Challenges Faced
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Creating dynamic personality quizzes with score mapping</li>
+              <li>Managing conditional rendering for profile states</li>
+              <li>Ensuring Firebase security rules and route protection</li>
+            </ul>
+          </div>
+
+          <div className="relative z-10">
+            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+              <FaRocket className="text-blue-400" /> Future Improvements & Plans
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Real-time match recommendations using AI</li>
+              <li>Private chat with moderation tools</li>
+              <li>Theme customization and mobile enhancements</li>
+            </ul>
+          </div>
+
+          <div className="relative z-10 flex justify-center mt-14">
+            <Link to="/">
+              <button className="flex items-center gap-2 px-4 py-2 custom-button">
+                <FaHome className="text-lg" />
+                Back Home
+              </button>
+            </Link>
+          </div>
+        </ClickSpark>
+      </section>
+    </>
+  );
+};
+
+export default AuraMatchDetails;

@@ -49,16 +49,23 @@ export default function Education() {
           relative 
         "
       >
-     
-
-
-
-
-
+         <img
+          src="/edu-bg.png"  // <-- use relative path for public folder images
+          alt="Education background"
+          className="
+      absolute right-0 top-1/2 transform -translate-y-1/2 scale-x-[-1] 
+      w-[300px] sm:w-[400px] md:w-[500px] lg:w-[800px] 
+      opacity-50 pointer-events-none select-none
+    "
+        />
         {/* Section Title */}
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-[#2563EB]">
           Education
         </h2>
+
+        {/* Background image from public folder */}
+       
+
         <div className="max-w-3xl mx-auto relative">
           {/* Timeline Line */}
           <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-blue-300 via-indigo-100 to-cyan-100 z-0 rounded-full" />

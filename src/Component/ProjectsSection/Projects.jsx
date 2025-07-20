@@ -1,12 +1,21 @@
+import React from "react";
 import { Link } from "react-router";
 import Squares from "../Banner/Squares";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import { FaArrowRight } from "react-icons/fa";
-import "./Projects.css"; 
 import { Helmet } from "react-helmet";
-
+import "./Projects.css";
 
 const projects = [
+    {
+    id: 4,
+    name:'Aura Match',
+    image: 'https://i.ibb.co/5hX8pZmx/logo-with-name.png',
+    url: '/project/4',
+    description: "Aura match is a matrimony platform where you can find your best match",
+    badges: ["React","MERN","Community","CRUD","Protected"]
+  },
   {
     id: 1,
     name: "Service Spot",
@@ -31,6 +40,7 @@ const projects = [
     description: "App discovery platform with categories and protected routes.",
     badges: ["React", "Routing", "Protected"],
   },
+
 ];
 
 const badgeColors = {
@@ -50,33 +60,19 @@ const Projects = () => {
     <>
       <Helmet>
         <title>Al Imran | Full Stack Web Developer</title>
-        {/* ...Meta tags as you have... */}
       </Helmet>
       <section
         id="projects"
-        data-aos="fade-up"
-        className="relative py-14 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] mx-auto overflow-hidden"
+        className="relative py-14 px-4 sm:px-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100 text-[#1F2937] mx-auto overflow-hidden"
       >
-        {/* Canvas Background */}
-        <Squares
-          direction="diagonal"
-          speed={0.5}
-          squareSize={54}
-          borderColor="rgba(31,41,55,0.07)"
-          hoverFillColor="#E0F2FE"
-          className="absolute inset-0 -z-10"
-        />
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          className="text-center mb-12 "
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#2563EB]">
-            My Projects
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2563EB]">My Projects</h2>
           <p className="text-gray-600 mt-2 text-base md:text-lg max-w-2xl mx-auto">
             Explore some of my best work showcasing real-world solutions using modern web technologies.
           </p>
@@ -89,45 +85,49 @@ const Projects = () => {
               initial={{ opacity: 0, y: 50, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.65, type: "spring", delay: 0.15 * index }}
-              whileHover={{
-                scale: 1.035,
-                boxShadow: "0 8px 40px 0 rgba(37,99,235,0.08)",
-                y: -4
-              }}
-              className="group bg-white relative rounded-2xl shadow-xl overflow-hidden border border-gray-300 hover:border-[#2563EB] transition-all duration-300"
             >
-              {/* 🖼️ Image - grayscale to color effect */}
-              <div className="overflow-hidden">
-                <motion.img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-48 object-cover border-b border-gray-200 grayscale-0 lg:grayscale group-hover:grayscale-0 transition duration-500"
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </div>
-              {/* 📄 Content */}
-              <div className="p-6 space-y-3">
-                {/* 🏷️ Badges */}
-                <div className="flex flex-wrap gap-2">
-                  {project.badges.map((badge, i) => (
-                    <span
-                      key={i}
-                      className={`px-2 py-1 text-xs font-semibold rounded ${badgeColors[badge] || "bg-gray-200 text-gray-700"}`}
-                    >
-                      {badge}
-                    </span>
-                  ))}
+              <Tilt
+                glareEnable={true}
+                glareColor="#93C5FD"
+                glareMaxOpacity={0.36}
+                tiltMaxAngleX={12}
+                tiltMaxAngleY={12}
+                transitionSpeed={2000}
+                className="drop-shadow-xl rounded-2xl"
+              >
+                <div className="group bg-white relative rounded-2xl shadow-xl overflow-hidden border border-gray-300 hover:border-[#2563EB] transition-all duration-300">
+                  <div className="overflow-hidden">
+                    <motion.img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-48 object-cover border-b border-gray-200 grayscale group-hover:grayscale-0 transition duration-500"
+                      whileHover={{ scale: 1.04, rotate: 1 }}
+                      transition={{ type: "spring", stiffness: 160, damping: 10 }}
+                    />
+                  </div>
+                  <div className="p-6 space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      {project.badges.map((badge, i) => (
+                        <span
+                          key={i}
+                          className={`px-2 py-1 text-xs font-semibold rounded ${
+                            badgeColors[badge] || "bg-gray-200 text-gray-700"
+                          }`}
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#2563EB] group-hover:text-[#1F2937] transition">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-gray-600">{project.description}</p>
+                    <Link to={project.url} className="custom-button mt-3 inline-flex items-center group">
+                      <FaArrowRight className="text-base hover:translate-x-2 transition" />
+                    </Link>
+                  </div>
                 </div>
-
-                <h3 className="text-xl font-semibold text-[#2563EB] group-hover:text-[#1F2937] transition">
-                  {project.name}
-                </h3>
-                <p className="text-sm text-gray-600">{project.description}</p>
-                <Link to={project.url} className="custom-button mt-3 inline-flex items-center gap-2 group">
-                  View Details <FaArrowRight className="text-base group-hover:translate-x-1 transition" />
-                </Link>
-              </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>
