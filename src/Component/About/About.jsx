@@ -13,6 +13,11 @@ const About = () => {
 
   const projects = [
     {
+      title: "Aura Match",
+      img: "https://i.ibb.co/5hX8pZmx/logo-with-name.png",
+      route: "/project/4",
+    },
+    {
       title: "Service Spot",
       img: "https://i.ibb.co/nMxNsR0Q/Screenshot-2025-06-29-050741.png",
       route: "/project/1",
@@ -27,6 +32,7 @@ const About = () => {
       img: "https://i.ibb.co/BKBjTqP5/Screenshot-2025-06-29-051657.png",
       route: "/project/3",
     },
+    
   ];
 
   const handleImageClick = (route) => {
@@ -137,8 +143,8 @@ const About = () => {
             aria-labelledby="modal-title"
             className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center"
           >
-            <div className="bg-gradient-to-tr from-blue-300 via-white to-cyan-400 p-6 rounded-xl max-w-4xl w-full shadow-xl">
-              <h3 id="modal-title" className="text-2xl font-semibold text-center mb-6">
+            <div className="bg-gradient-to-tr from-blue-300 via-white to-cyan-400 p-6 rounded-xl max-w-4xl  shadow-xl">
+              <h3 id="modal-title" className="text-2xl text-gray-700 font-semibold text-center mb-6">
                 My Top Projects
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -160,11 +166,11 @@ const About = () => {
                 ))}
               </div>
               <button
-                onClick={() => setShowModal(false)}
-                className="block mx-auto mt-6 px-5 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold"
-              >
-                Close
-              </button>
+  onClick={() => setShowModal(false)}
+  className="mt-6 w-full px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-md text-center transition"
+>
+  Close
+</button>
             </div>
           </div>
         )}

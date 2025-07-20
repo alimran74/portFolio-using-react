@@ -63,8 +63,8 @@ const Projects = () => {
       </Helmet>
       <section
         id="projects"
-        className="relative py-14 px-4 sm:px-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100 text-[#1F2937] mx-auto overflow-hidden"
-      >
+        className="relative py-14 px-4 sm:px-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100  text-[#1F2937]  overflow-hidden"
+      ><div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,6 +130,7 @@ const Projects = () => {
               </Tilt>
             </motion.div>
           ))}
+        </div>
         </div>
       </section>
     </>
