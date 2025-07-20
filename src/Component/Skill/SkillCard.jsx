@@ -55,7 +55,7 @@ const SkillCard = ({ skill }) => {
       <Tilt
         glareEnable={true}
         glareMaxOpacity={0.36}
-        glareColor="#93C5FD" // Same as hero image tilt
+        glareColor="#93C5FD" 
         tiltMaxAngleX={10}
         tiltMaxAngleY={10}
         transitionSpeed={1000}

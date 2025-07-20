@@ -58,9 +58,9 @@ const About = () => {
       <section
         id="about"
         ref={containerRef}
-        className="relative min-h-screen overflow-hidden bg-gradient-to-tr from-blue-200 via-white to-cyan-100 py-20 px-6 sm:px-10"
+        className="relative  overflow-hidden bg-gradient-to-tr from-blue-200 via-white to-cyan-100  px-6 sm:px-10"
       >
-        <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
          {/* Right Section - Tilt Image */}
           <motion.div
             className="w-4/5 max-w-xs sm:max-w-md md:w-1/2 mx-auto md:mx-0"

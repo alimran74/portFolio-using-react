@@ -42,6 +42,24 @@ const Banner = () => {
         id="home"
         className="relative overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-cyan-100"
       >
+  {/* === Rotating Background Blob === */}
+  <motion.img
+    src="/blob.png"
+    alt="Background Blob"
+    aria-hidden
+    className="hidden lg:block absolute  top-1/2 transform -translate-y-1/2 min-h-screen opacity-60 pointer-events-none select-none z-0"
+    style={{
+      filter: "blur(2px)",
+      mixBlendMode: "multiply",
+    }}
+    animate={{ rotate: 360 }}
+    transition={{
+      repeat: Infinity,
+      duration: 60,
+      ease: "linear",
+    }}
+  />
+
         
         
 
@@ -164,7 +182,7 @@ const Banner = () => {
           {/* Right Section - Tilt Image */}
           <motion.div
             className="w-4/5 max-w-xs sm:max-w-md md:w-1/2 mx-auto md:mx-0"
-            initial={{ opacity: 0, scale: 0.9, y: 25 }}
+            initial={{ opacity: 1, scale: 0.9, y: 25 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7, type: "spring", bounce: 0.3 }}
           >

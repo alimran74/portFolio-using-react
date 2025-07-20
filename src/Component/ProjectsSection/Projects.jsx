@@ -1,8 +1,10 @@
 import { Link } from "react-router";
 import Squares from "../Banner/Squares";
 import { motion } from "framer-motion";
-import "./Projects.css"; // 🌟 Import for animated button
+import { FaArrowRight } from "react-icons/fa";
+import "./Projects.css"; 
 import { Helmet } from "react-helmet";
+
 
 const projects = [
   {
@@ -46,95 +48,90 @@ const badgeColors = {
 const Projects = () => {
   return (
     <>
-     <Helmet>
+      <Helmet>
         <title>Al Imran | Full Stack Web Developer</title>
-        <meta
-          name="description"
-          content="Welcome to the portfolio of Al Imran, a passionate Full Stack Web Developer skilled in React, Node.js, MongoDB, and modern web technologies."
-        />
-        <meta
-          name="keywords"
-          content="Al Imran, Web Developer, MERN stack, React portfolio, JavaScript developer"
-        />
-        <meta name="author" content="Al Imran" />
-        <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
-        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
-        <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
-        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
+        {/* ...Meta tags as you have... */}
       </Helmet>
-    <section
-      id="projects"
-      data-aos="fade-up"
-      className="relative py-12 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] px-7 mx-auto overflow-hidden"
-    >
-      {/* 🔲 Canvas Background */}
-      <Squares
-        direction="diagonal"
-        speed={0.5}
-        squareSize={50}
-        borderColor="rgba(31, 41, 55, 0.08)"
-        hoverFillColor="#E0F2FE"
-        className="absolute inset-0 -z-10"
-      />
-
-      {/* 🔤 Heading */}
-      <motion.div
-        
-        className="text-center mb-12"
+      <section
+        id="projects"
+        data-aos="fade-up"
+        className="relative py-14 px-4 sm:px-8 bg-[#F9FAFB] text-[#1F2937] mx-auto overflow-hidden"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-[#2563EB]">
-          My Projects
-        </h2>
-        <p className="text-gray-600 mt-2 text-base md:text-lg max-w-2xl mx-auto">
-          Explore some of my best work showcasing real-world solutions using modern web technologies.
-        </p>
-      </motion.div>
+        {/* Canvas Background */}
+        <Squares
+          direction="diagonal"
+          speed={0.5}
+          squareSize={54}
+          borderColor="rgba(31,41,55,0.07)"
+          hoverFillColor="#E0F2FE"
+          className="absolute inset-0 -z-10"
+        />
 
-      {/* 🔳 Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.4 }}
-            className="group bg-white rounded-2xl shadow-md overflow-hidden border border-gray-900 transition duration-300"
-          >
-            {/* 🖼️ Image - grayscale on desktop only */}
-            <img
-              src={project.image}
-              alt={project.name}
-              className="w-full h-48 object-cover border-b border-gray-200 grayscale-0 md:grayscale md:group-hover:grayscale-0 transition duration-500"
-            />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2563EB]">
+            My Projects
+          </h2>
+          <p className="text-gray-600 mt-2 text-base md:text-lg max-w-2xl mx-auto">
+            Explore some of my best work showcasing real-world solutions using modern web technologies.
+          </p>
+        </motion.div>
 
-            {/* 📄 Content */}
-            <div className="p-6 space-y-3">
-              {/* 🏷️ Badges */}
-              <div className="flex flex-wrap gap-2">
-                {project.badges.map((badge, i) => (
-                  <span
-                    key={i}
-                    className={`px-2 py-1 text-xs font-semibold rounded ${badgeColors[badge] || "bg-gray-200 text-gray-700"}`}
-                  >
-                    {badge}
-                  </span>
-                ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.65, type: "spring", delay: 0.15 * index }}
+              whileHover={{
+                scale: 1.035,
+                boxShadow: "0 8px 40px 0 rgba(37,99,235,0.08)",
+                y: -4
+              }}
+              className="group bg-white relative rounded-2xl shadow-xl overflow-hidden border border-gray-300 hover:border-[#2563EB] transition-all duration-300"
+            >
+              {/* 🖼️ Image - grayscale to color effect */}
+              <div className="overflow-hidden">
+                <motion.img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-48 object-cover border-b border-gray-200 grayscale-0 lg:grayscale group-hover:grayscale-0 transition duration-500"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.5 }}
+                />
               </div>
+              {/* 📄 Content */}
+              <div className="p-6 space-y-3">
+                {/* 🏷️ Badges */}
+                <div className="flex flex-wrap gap-2">
+                  {project.badges.map((badge, i) => (
+                    <span
+                      key={i}
+                      className={`px-2 py-1 text-xs font-semibold rounded ${badgeColors[badge] || "bg-gray-200 text-gray-700"}`}
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
 
-              <h3 className="text-xl font-semibold text-[#2563EB] group-hover:text-[#1F2937] transition">
-                {project.name}
-              </h3>
-              <p className="text-sm text-gray-600">{project.description}</p>
-
-              {/* 🚀 Button with CSS animation */}
-              <Link to={project.url} className="custom-button mt-3 inline-block">
-                View Details
-              </Link>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+                <h3 className="text-xl font-semibold text-[#2563EB] group-hover:text-[#1F2937] transition">
+                  {project.name}
+                </h3>
+                <p className="text-sm text-gray-600">{project.description}</p>
+                <Link to={project.url} className="custom-button mt-3 inline-flex items-center gap-2 group">
+                  View Details <FaArrowRight className="text-base group-hover:translate-x-1 transition" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </>
   );
 };

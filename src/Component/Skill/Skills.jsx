@@ -55,7 +55,7 @@ const Skills = () => {
       </Helmet>
     <section 
       id="skills"
-      className="pt-16 md:pt-18 px-4 sm:px-8 md:px-16  mx-auto relative overflow-hidden pb-4 bg-gradient-to-br from-blue-200 via-white to-cyan-100"
+      className="pt-24  px-4 sm:px-8 md:px-16  mx-auto relative overflow-hidden pb-8 bg-gradient-to-br from-blue-200 via-white to-cyan-100"
        // soft gray background & dark text
     >
       {/* ✅ Square Background Effect */}
