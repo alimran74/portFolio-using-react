@@ -136,14 +136,20 @@ const About = () => {
         </div>
 
         {/* 🔍 Modal for Project Preview */}
-        {showModal && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center"
-          >
-            <div className="bg-gradient-to-tr from-blue-300 via-white to-cyan-400 p-6 rounded-xl max-w-4xl  shadow-xl">
+       {showModal && (
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    className="
+      fixed inset-0 z-50 bg-black/40 backdrop-blur-sm 
+      flex items-center justify-center
+      p-4
+      overflow-auto
+      min-h-screen
+      "
+  >
+            <div className="bg-gradient-to-tr from-blue-300 via-white to-cyan-400 p-6 rounded-xl max-w-4xl shadow-xl w-full max-h-[90vh] overflow-auto">
               <h3 id="modal-title" className="text-2xl text-gray-700 font-semibold text-center mb-6">
                 My Top Projects
               </h3>
@@ -165,15 +171,15 @@ const About = () => {
                   </div>
                 ))}
               </div>
-              <button
-  onClick={() => setShowModal(false)}
-  className="mt-6 w-full px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-md text-center transition"
->
-  Close
-</button>
-            </div>
-          </div>
-        )}
+               <button
+        onClick={() => setShowModal(false)}
+        className="mt-6 w-full px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-md text-center transition"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
       </section>
     </>
   );

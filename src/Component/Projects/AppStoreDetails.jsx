@@ -88,19 +88,26 @@ const AppStoreDetails = () => {
           </p>
         </div>
 
-        <div className="relative z-10" style={{ height: "600px", marginBottom: "3rem" }}>
-          <CardSwap cardDistance={60} verticalDistance={70} delay={4000} pauseOnHover>
-            {imageUrls.map((src, index) => (
-              <Card key={index} onClick={() => setSelectedImage(src)}>
-                <img
-                  src={src}
-                  alt={`AppStore ${index + 1}`}
-                  className="rounded-xl border border-white w-full h-full object-cover cursor-zoom-in"
-                />
-              </Card>
-            ))}
-          </CardSwap>
-        </div>
+        <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24 lg:py-32 px-4">
+  <div className="w-full max-w-6xl">
+    <CardSwap
+      cardDistance={60}
+      verticalDistance={70}
+      delay={4000}
+      pauseOnHover
+    >
+      {imageUrls.map((src, index) => (
+        <Card key={index} onClick={() => setSelectedImage(src)}>
+          <img
+            src={src}
+            alt={`Aura Match ${index + 1}`}
+            className="w-full h-full max-h-[500px] sm:max-h-[550px] md:max-h-[600px] lg:max-h-[700px] aspect-video object-cover rounded-2xl border border-white shadow-xl cursor-zoom-in"
+          />
+        </Card>
+      ))}
+    </CardSwap>
+  </div>
+</div>
 
         <div className="relative z-10 mb-10">
           <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">

@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet";
-
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 
 const Footer = () => {
   return (
- <>
- <Helmet>
+    <>
+      <Helmet>
         <title>Al Imran | Full Stack Web Developer</title>
         <meta
           name="description"
@@ -17,42 +17,45 @@ const Footer = () => {
         />
         <meta name="author" content="Al Imran" />
         <meta property="og:title" content="Al Imran | Full Stack Web Developer" />
-        <meta property="og:description" content="Explore my projects and skills in React, Node.js, and more." />
-        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/" />
+        <meta
+          property="og:description"
+          content="Explore my projects and skills in React, Node.js, and more."
+        />
+        <meta property="og:image" content="https://al-imran-portfolio.netlify.app/banner.png" />
         <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
-        <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-    <footer data-aos="fade-up"
-      className="relative z-10 px-7 mx-auto px-8  
-        bg-[#F9FAFB]/80 backdrop-blur-md border border-[#1F2937]/10 shadow-md
-        flex flex-col items-center gap-4
-        text-[#1F2937]"
-    >
-      {/* Logo */}
-      <img
-        src="https://i.ibb.co/qFmfJC6B/image-modified.png" 
-        alt="Al Imran Logo"
-        className="h-20 mt-2 w-auto "
-      />
 
-     
-      <div className="flex flex-col items-center space-y-2">
-        <h1 className="text-6xl font-extrabold tracking-wide text-[#2563EB]">
-          Al Imran
-        </h1>
-        <p className="text-lg max-w-md text-center text-[#050d18]">
-          Crafting clean & modern web experiences — let's build something great
-          together.
+      <footer className="bg-gradient-to-br from-blue-200 via-white to-cyan-100  shadow-inner px-4 md:px-10 py-10 text-center text-gray-800">
+        {/* Logo */}
+        <div className="flex flex-col items-center space-y-4">
+          <img
+            src="/logo.png"
+            alt="Al Imran Logo"
+            className="h-20 w-auto"
+          />
+
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-[#2563EB]">
+            Al Imran
+          </h2>
+          <p className="text-base md:text-lg max-w-xl mx-auto text-gray-700">
+            Full Stack Web Developer | MERN Stack | Clean UI Enthusiast
+          </p>
+          <p className="italic text-sm text-gray-600 animate-pulse">
+            “Turning Ideas into Interfaces — One Line at a Time.”
+          </p>
+
+          {/* Social Links */}
+          
+        </div>
+
+        <hr className="my-6   w-1/2 mx-auto" />
+
+        <p className="text-sm text-gray-600">
+          &copy; {new Date().getFullYear()} Al Imran — All rights reserved.
         </p>
-        <p className="animate-pulse italic">
-          “Turning Ideas into Interfaces — One Line at a Time.”
-        </p>
-        <p className="text-lg text-gray-600 ">
-          &copy; {new Date().getFullYear()} All rights reserved.
-        </p>
-      </div>
-    </footer>
- </>
+      </footer>
+    </>
   );
 };
 

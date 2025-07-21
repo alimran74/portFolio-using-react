@@ -80,26 +80,37 @@ const AuraMatchDetails = () => {
 
           <div className="text-center relative z-10 mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-blue-400 inline-flex items-center gap-3 justify-center mb-4">
-              <FaBlog /> Aura Match — Personality & Dating Platform
+              <FaBlog /> Aura Match — Personality & matrimony Platform
             </h2>
             <p className="text-[#1F2937] md:text-lg max-w-2xl mx-auto">
               A modern matching and dating platform that uses questionnaires, Firebase auth, and secure profiles to connect users.
             </p>
           </div>
 
-          <div className="relative z-10" style={{ height: "600px", marginBottom: "3rem" }}>
-            <CardSwap cardDistance={60} verticalDistance={70} delay={4000} pauseOnHover>
-              {imageUrls.map((src, index) => (
-                <Card key={index} onClick={() => setSelectedImage(src)}>
-                  <img
-                    src={src}
-                    alt={`Aura Match ${index + 1}`}
-                    className="rounded-xl border border-white w-full h-full object-cover cursor-zoom-in"
-                  />
-                </Card>
-              ))}
-            </CardSwap>
-          </div>
+         <div className="relative z-10 flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 py-12 min-h-[50vh]">
+  <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24 lg:py-32 px-4">
+  <div className="w-full max-w-6xl">
+    <CardSwap
+      cardDistance={60}
+      verticalDistance={70}
+      delay={4000}
+      pauseOnHover
+    >
+      {imageUrls.map((src, index) => (
+        <Card key={index} onClick={() => setSelectedImage(src)}>
+          <img
+            src={src}
+            alt={`Aura Match ${index + 1}`}
+            className="w-full h-full max-h-[500px] sm:max-h-[550px] md:max-h-[600px] lg:max-h-[700px] aspect-video object-cover rounded-2xl border border-white shadow-xl cursor-zoom-in"
+          />
+        </Card>
+      ))}
+    </CardSwap>
+  </div>
+</div>
+
+</div>
+
 
           <div className="relative z-10 mb-10">
             <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
@@ -114,13 +125,30 @@ const AuraMatchDetails = () => {
           </div>
 
           <div className="relative z-10 mb-10">
-            <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
-              <FaFileAlt className="text-blue-400" /> Description
-            </h3>
-            <p className="leading-relaxed">
-              Aura Match allows users to register, fill out a matching quiz, and get suggested partners. It includes secure authentication, profile controls, a personality dashboard, and animations for modern UX. All user data is securely stored and retrievable.
-            </p>
-          </div>
+  <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+    <FaFileAlt className="text-blue-400" /> Description
+  </h3>
+  <p className="leading-relaxed space-y-3">
+    Aura Match is a dynamic and engaging dating/personality matching web application. It allows users to register via Firebase Auth, upload a profile with cropped avatars, and complete interactive personality quizzes. These results drive the matchmaking algorithm.
+    <br /><br />
+    Users receive compatibility-based match suggestions and can view detailed partner scores. The frontend is built with TailwindCSS and React, using modern animations and transitions for fluid UX. Profiles are securely stored and editable, and dynamic route protection ensures only authorized access.
+    <br /><br />
+    The app adapts responsively across all screen sizes and offers a mobile-friendly experience with touch optimization.
+  </p>
+</div>
+          <div className="relative z-10 mb-10">
+  <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
+    <FaRocket className="text-blue-400" /> Key Features
+  </h3>
+  <ul className="list-disc list-inside space-y-1">
+    <li>Quiz-based compatibility scoring system</li>
+    <li>Profile creation with avatar cropping and editing</li>
+    <li>Secure authentication and user-specific dashboards</li>
+    <li>Compatibility match list with dynamic score cards</li>
+    <li>Match history tracking with stats and filter</li>
+    <li>Fully responsive, optimized for both mobile and desktop</li>
+  </ul>
+</div>
 
           <div className="relative z-10 mb-10">
             <h3 className="text-2xl font-semibold flex items-center gap-2 mb-3">
@@ -129,8 +157,8 @@ const AuraMatchDetails = () => {
             <ul className="text-blue-400 space-y-2 text-base md:text-lg">
               <li>
                 🌐 Live:{" "}
-                <a href="https://aura-match.netlify.app/" target="_blank" rel="noreferrer" className="hover:underline">
-                  aura-match.netlify.app
+                <a href="https://aura-match.web.app/" target="_blank" rel="noreferrer" className="hover:underline">
+                 https://aura-match.web.app
                 </a>
               </li>
               <li>
@@ -172,9 +200,10 @@ const AuraMatchDetails = () => {
 
           <div className="relative z-10 flex justify-center mt-14">
             <Link to="/">
-              <button className="flex items-center gap-2 px-4 py-2 custom-button">
-                <FaHome className="text-lg" />
-                Back Home
+              <button className="grid grid-cols-2 items-center gap-2 px-4 py-2 custom-button">
+                
+                <FaHome className="" />
+                 
               </button>
             </Link>
           </div>
