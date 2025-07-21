@@ -49,7 +49,7 @@ const HobbyHubDetails = () => {
         <meta property="og:url" content="https://al-imran-portfolio.netlify.app/" />
         <meta name="twitter:card" content="https://i.ibb.co/FkQGbfY6/bannerP.png" />
       </Helmet>
-  <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
+  <section className="relative bg-gradient-to-br from-blue-100 via-white to-cyan-100 text-[#1F2937] pt-20 pb-12  sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
       <ClickSpark sparkColor="black" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
           <Squares
@@ -97,8 +97,9 @@ const HobbyHubDetails = () => {
           </p>
         </div>
 
-        <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24 lg:py-32 px-4">
-  <div className="w-full max-w-6xl">
+        <div className="relative z-0 flex items-center justify-center px-12 sm:px-6 md:px-16  lg:px-24 py-12 min-h-[40vh]">
+  <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24  lg:py-32 px-4">
+  <div className="w-full  max-w-6xl">
     <CardSwap
       cardDistance={60}
       verticalDistance={70}
@@ -116,6 +117,8 @@ const HobbyHubDetails = () => {
       ))}
     </CardSwap>
   </div>
+</div>
+
 </div>
 
         <div className="relative z-10 mb-10">

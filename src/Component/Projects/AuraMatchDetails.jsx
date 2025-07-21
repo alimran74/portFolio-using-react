@@ -23,10 +23,11 @@ const AuraMatchDetails = () => {
   }, []);
 
   const imageUrls = [
-    "https://i.ibb.co/TmcyDM3/aura1.png",
-    "https://i.ibb.co/fqdNqsk/aura2.png",
-    "https://i.ibb.co/t8DBDWB/aura3.png",
-    "https://i.ibb.co/qmN6KxD/aura4.png",
+    "https://i.ibb.co/TxF0X1QC/Screenshot-2025-07-21-064413.png",
+    "https://i.ibb.co/HDwSzSq9/Screenshot-2025-07-21-064516.png",
+    "https://i.ibb.co/nMm8vrdV/Screenshot-2025-07-21-064342.png",
+    "https://i.ibb.co/N2sw5T2b/Screenshot-2025-07-21-064647.png",
+    "https://i.ibb.co/MD5t1FRB/Screenshot-2025-07-21-064624.png ",
   ];
 
   return (
@@ -48,7 +49,7 @@ const AuraMatchDetails = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="relative bg-[#F9FAFB] text-[#1F2937] pt-20 pb-12 px-4 sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-100 via-white to-cyan-100 text-[#1F2937] pt-20 pb-12  sm:px-8 md:px-16 px-7 mx-auto overflow-hidden">
         <ClickSpark sparkColor="black" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
           <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
             <Squares
@@ -61,18 +62,24 @@ const AuraMatchDetails = () => {
             />
           </div>
 
-          {selectedImage && (
-            <div className="fixed inset-0 z-[999] bg-white/20 backdrop-blur-md bg-opacity-95 flex items-center justify-center flex-col p-4">
-              <img
-                src={selectedImage}
-                alt="Zoomed"
-                className="max-h-[80vh] max-w-[90vw] object-contain rounded-xl border border-white shadow-2xl"
-              />
-              <button onClick={() => setSelectedImage(null)} className="custom-button mt-10">
-                🔙 Back to Project
-              </button>
-            </div>
-          )}
+           {selectedImage && (
+          <div
+            data-aos="zoom-in"
+            className="fixed inset-0 z-[999] bg-white/20 backdrop-blur-md bg-opacity-95 flex items-center justify-center flex-col p-4"
+          >
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="max-h-[80vh] max-w-[90vw] object-contain rounded-xl border border-white shadow-2xl"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="custom-button mt-10"
+            >
+              🔙 Back to Project
+            </button>
+          </div>
+        )}
 
           <Link to="/" className="relative z-10 inline-flex items-center gap-2 text-blue-400 font-semibold mb-6 hover:underline">
             <FaArrowLeft /> Go Back
@@ -87,9 +94,9 @@ const AuraMatchDetails = () => {
             </p>
           </div>
 
-         <div className="relative z-10 flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 py-12 min-h-[50vh]">
-  <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24 lg:py-32 px-4">
-  <div className="w-full max-w-6xl">
+         <div className="relative z-0 flex items-center justify-center px-12 sm:px-6 md:px-16  lg:px-24 py-12 min-h-[40vh]">
+  <div className="relative z-0 flex justify-center items-center w-full py-10 sm:py-16 md:py-24  lg:py-32 px-4">
+  <div className="w-full  max-w-6xl">
     <CardSwap
       cardDistance={60}
       verticalDistance={70}

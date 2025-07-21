@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import AuraMatchDetails from './Component/Projects/AuraMatchDetails';
 import Loading from './Component/loading/Loading';
 import ProjectLoading from './Component/loading/ProjectLoading';
+import ErrorPage from './Component/Projects/pages/Error';
 
 
 const MainLayout = lazy(() => import('./Layouts/MainLayout'));
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
         <MainLayout />
       </Suspense>
     ),
+    errorElement: <ErrorPage/>
   },
   {
     path: '/project',
