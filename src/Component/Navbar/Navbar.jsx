@@ -11,7 +11,7 @@ const navLinks = [
 ];
 
 const resumeLink =
-  "https://drive.google.com/file/d/1pnc3V0KNAhl8_A8Tff8V1tHuphu_ig4I/view?usp=sharing";
+  "https://drive.google.com/file/d/1T0nghxmVcp70XT3BeRlRqy2snCmTrFP_/view?usp=sharing";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

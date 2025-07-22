@@ -161,7 +161,7 @@ const Banner = () => {
               </motion.a>
 
               <motion.a
-                href="/resume.pdf"
+                href="/Resume of Al Imran.pdf"
                 download
                 aria-label="Download Resume"
                 whileHover={{
