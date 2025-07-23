@@ -15,6 +15,7 @@ import Contact from "../Component/Contact/Contact";
 import Footer from "../Component/Footer/Footer";
 
 
+
 const MainLayout = () => {
   useEffect(() => {
     AOS.init({
@@ -90,6 +91,7 @@ const MainLayout = () => {
         <Skills />
         <Education />
         <Projects />
+     
         <Contact />
         <Footer />
         </div>

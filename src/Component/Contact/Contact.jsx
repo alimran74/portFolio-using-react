@@ -7,9 +7,9 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaClock,
+  FaUser,
 } from "react-icons/fa";
-import { MdContactMail } from "react-icons/md";
-import Squares from "../Banner/Squares";
+
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { Helmet } from "react-helmet";
@@ -22,8 +22,8 @@ const contactData = [
   },
   {
     icon: <FaClock className="text-2xl text-blue-500" />,
-    title: "Available Time",
-    desc: "Monday - Friday\n9:00am - 5:00pm",
+    title: "Availability",
+    desc: "Monday - Friday\n1:00pm - 6:00am",
   },
   {
     icon: <FaPhone className="text-2xl text-blue-500" />,
@@ -37,7 +37,7 @@ const contactData = [
   },
 ];
 
-const timelineColors = ["#3B82F6", "#06B6D4", "#6366F1", "#0EA5E9"];
+
 
 const Contact = () => {
   const form = useRef();
@@ -104,10 +104,12 @@ const Contact = () => {
         
 
         <div className="text-center mb-14">
-          <div className="flex justify-center items-center gap-3 text-blue-500 text-4xl font-bold">
-            <MdContactMail className="text-5xl" />
-            <h2>Contact Me</h2>
+          <div className="flex justify-center items-center gap-3 text-blue-500 text-4xl md:text-5xl font-bold">
+           
+            <h2>Contact <span className="text-cyan-500">Me</span></h2>
+            
           </div>
+          <div className="w-48 h-1 mt-1 bg-blue-700 mx-auto mb-8"></div>
           <p className="text-gray-600 text-lg mt-2">
             Feel free to reach out through any method or drop a message below.
           </p>
@@ -119,7 +121,7 @@ const Contact = () => {
             {/* Timeline vertical line */}
             <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-blue-300 via-indigo-100 to-cyan-100 z-0 rounded-full" />
 
-            <div className="relative z-10 flex flex-col gap-14 pl-16">
+            <div className="relative z-10 flex flex-col gap-6 pl-16">
               {contactData.map((card, i) => (
                 <motion.div
                   key={i}
@@ -160,10 +162,10 @@ const Contact = () => {
     hover:shadow-[0_0_20px_5px_rgba(59,130,246,0.7)] hover:border-blue-500
     hover:scale-[1.02] transition duration-300 ease-in-out"
           >
-            <h3 className="text-xl font-semibold text-[#1F2937] mb-4">
+            <h3 className="text-xl font-semibold text-cyan-500 text-center mb-4">
               Stay in Touch
             </h3>
-
+             
             <input
               type="text"
               name="name"
@@ -171,6 +173,7 @@ const Contact = () => {
               required
               className="w-full px-4 py-3 rounded-lg bg-gray-100 text-[#1F2937] border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
+           
 
             <input
               type="email"

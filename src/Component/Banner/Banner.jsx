@@ -43,22 +43,7 @@ const Banner = () => {
         className="relative overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-cyan-100"
       >
   {/* === Rotating Background Blob === */}
-  <motion.img
-    src="/blob.png"
-    alt="Background Blob"
-    aria-hidden
-    className="hidden lg:block absolute  top-1/2 transform -translate-y-1/2 min-h-screen opacity-60 pointer-events-none select-none z-0"
-    style={{
-      filter: "blur(2px)",
-      mixBlendMode: "multiply",
-    }}
-    animate={{ rotate: 360 }}
-    transition={{
-      repeat: Infinity,
-      duration: 60,
-      ease: "linear",
-    }}
-  />
+ 
 
         
         
@@ -154,7 +139,7 @@ const Banner = () => {
                   boxShadow: "0 8px 20px rgba(37,211,102,0.35)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-[#25D366] text-white font-semibold rounded-lg shadow-lg border border-[#25D366] transition-all duration-300"
+                className="inline-flex items-center px-6 py-3 bg-[#3973e0] text-white font-semibold rounded-lg shadow-lg  transition-all duration-300"
               >
                 <FaWhatsapp className="text-xl mr-2" />
                 Contact
@@ -193,12 +178,12 @@ const Banner = () => {
               tiltMaxAngleX={12}
               tiltMaxAngleY={12}
               transitionSpeed={2000}
-              className="drop-shadow-xl rounded-3xl border-4 border-[#2563EB]"
+              className=" "
             >
               <motion.img
-                src="https://i.ibb.co/W46CHFWY/Whats-App-Image-2025-05-10-at-20-42-37-0259ce4c-removebg-preview-removebg-preview.png"
+                src="https://i.ibb.co/vx8cySbr/IMG-20250501-131858-removebg-preview.png"
                 alt="Al Imran"
-                className="rounded-3xl w-full h-auto block"
+                className="rounded-full w-full h-auto block  border-4 border-[#2563EB]"
                 whileHover={{ scale: 1.06, rotate: 2 }}
                 transition={{ type: "spring", stiffness: 160, damping: 10 }}
               />

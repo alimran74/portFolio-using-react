@@ -66,7 +66,7 @@ const About = () => {
         ref={containerRef}
         className="relative  overflow-hidden bg-gradient-to-tr from-blue-200 via-white to-cyan-100  px-6 sm:px-10"
       >
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row py-12 gap-12 items-center">
          {/* Right Section - Tilt Image */}
           <motion.div
             className="w-4/5 max-w-xs sm:max-w-md md:w-1/2 mx-auto md:mx-0"
@@ -173,7 +173,7 @@ const About = () => {
               </div>
                <button
         onClick={() => setShowModal(false)}
-        className="mt-6 w-full px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-md text-center transition"
+        className="custom-button items-center text-center w-full mx-auto"
       >
         Close
       </button>
